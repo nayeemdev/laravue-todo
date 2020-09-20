@@ -5,14 +5,14 @@ namespace App\Repositories\Todo;
 use App\Models\Todo;
 use App\Repositories\Todo\TodoInterface;
 
-class TodoRepository extends TodoInterface
+class TodoRepository implements TodoInterface
 {
     public function __construct(Todo $model){
         $this->model = $model;
     }
 
     public function getAll(){
-        return $this->model->all();
+        return $this->model->latest()->paginate(15);
     }
 
     public function getById($id){
@@ -24,13 +24,13 @@ class TodoRepository extends TodoInterface
     }
 
     public function update($id, array $attr){
-        $todo = $this->model->fidnOrFail($id);
+        $todo = $this->model->findOrFail($id);
         $todo->update($attr);
 
         return $todo;
     }
 
     public function delete($id){
-        return $this->model->find($id)->delete();
+        return $this->model->findOrFail($id)->delete();
     }
 }
