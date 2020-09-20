@@ -70,18 +70,6 @@ export default {
             message: "That's the success!",
             position: "topRight"
         },
-        showInfoMsg: {
-            type: "info",
-            title: "Hey you",
-            message: "Here is some info for you",
-            position: "topRight"
-        },
-        showWarnMsg: {
-            type: "warn",
-            title: "Wow, man",
-            message: "That's the kind of warning",
-            position: "topRight"
-        },
         showErrorMsg: {
             type: "error",
             title: "Wow-wow",
